@@ -1,7 +1,7 @@
-name: Greet Pull Request
+name: Greet Issue and Photo Input
 
 on:
-  pull_request:
+  issue:
     types:
       - opened
 
@@ -12,17 +12,21 @@ jobs:
       - name: Greet the user
         uses: actions/first-interaction@v1
         with:
-          repo-token: ${{ secrets.KEVI_TOKEN }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
           issue-message: |
             Hi {{ github.actor }}!
 
-            Thanks for opening a new pull request. We appreciate your contribution to the project.
+            Thanks for opening a new issue. We appreciate your feedback.
 
             Please let us know if you have any questions.
+
+            In order to help you better, can you please provide a photo of the issue?
 
           pr-message: |
             Hi {{ github.actor }}!
 
-            Thanks for opening a new pull request. We'll review it soon.
+            Thanks for opening a new issue. We'll review it soon.
 
             In the meantime, please let us know if you have any questions.
+            Please provide a photo of the issue.
+
